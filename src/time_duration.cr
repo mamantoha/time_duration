@@ -5,14 +5,14 @@
 #
 # ```
 # duration = Time::Duration.minutes(90)
-# puts duration.in_hours      # Outputs: 1.5
-# puts duration.in_seconds    # Outputs: 5400
+# puts duration.in_hours   # Outputs: 1.5
+# puts duration.in_seconds # Outputs: 5400
 #
 # future_time = duration.since
-# puts future_time            # Outputs: [current_time + 90 minutes]
+# puts future_time # Outputs: [current_time + 90 minutes]
 #
 # past_time = duration.ago
-# puts past_time              # Outputs: [current_time - 90 minutes]
+# puts past_time # Outputs: [current_time - 90 minutes]
 # ```
 struct Time::Duration
   VERSION = {{ `shards version #{__DIR__}`.chomp.stringify }}

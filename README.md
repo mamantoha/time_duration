@@ -1,5 +1,7 @@
 # Time::Duration
 
+[![Crystal CI](https://github.com/mamantoha/time_duration/actions/workflows/crystal.yml/badge.svg)](https://github.com/mamantoha/time_duration/actions/workflows/crystal.yml)
+
 The `Time::Duration` library provides a structured and convenient way to work with durations of time in the Crystal programming language. It allows the creation of duration instances from various units of time such as seconds, minutes, hours, days, weeks, months, and years, and also supports duration operations like addition, subtraction, multiplication, and division.
 
 This library is inspired by the [ActiveSupport::Duration](https://api.rubyonrails.org/classes/ActiveSupport/Duration.html) library from the Ruby on Rails framework.
