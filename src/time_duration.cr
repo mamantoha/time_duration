@@ -135,24 +135,16 @@ struct Time::Duration
 
   def in_general : NamedTuple(years: Int32, months: Int32, days: Int32, hours: Int32, minutes: Int32, seconds: Int32)
     @general ||= begin
-      total_seconds = @value
+      remainder = @value
 
-      years = (total_seconds // SECONDS_PER_YEAR).to_i
-      seconds = total_seconds % SECONDS_PER_YEAR
+      years, remainder = remainder.divmod(SECONDS_PER_YEAR)
+      months, remainder = remainder.divmod(SECONDS_PER_MONTH)
+      days, remainder = remainder.divmod(SECONDS_PER_DAY)
+      hours, remainder = remainder.divmod(SECONDS_PER_HOUR)
+      minutes, remainder = remainder.divmod(SECONDS_PER_MINUTE)
+      seconds = remainder
 
-      months = (seconds / SECONDS_PER_MONTH).to_i
-      seconds = seconds % SECONDS_PER_MONTH
-
-      days = (seconds / SECONDS_PER_DAY).to_i
-      seconds = seconds % SECONDS_PER_DAY
-
-      hours = (seconds / SECONDS_PER_HOUR).to_i
-      seconds = seconds % SECONDS_PER_HOUR
-
-      minutes = (seconds / SECONDS_PER_MINUTE).to_i
-      seconds = seconds % SECONDS_PER_MINUTE
-
-      {years: years, months: months, days: days, hours: hours, minutes: minutes, seconds: seconds.to_i}
+      {years: years.to_i, months: months.to_i, days: days.to_i, hours: hours.to_i, minutes: minutes.to_i, seconds: seconds.to_i}
     end
   end
 
