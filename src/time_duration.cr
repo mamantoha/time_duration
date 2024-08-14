@@ -96,13 +96,13 @@ struct Time::Duration
   end
 
   # Returns a new `Time::Duration` representing the original duration multiplied by a number.
-  def *(number : Number)
-    Time::Duration.new(@value * number)
+  def *(other : Number)
+    Time::Duration.new(@value * other)
   end
 
   # Returns a new `Time::Duration` representing the original duration divided by a number.
-  def /(number : Number)
-    Time::Duration.new(@value / number)
+  def /(other : Number)
+    Time::Duration.new(@value / other)
   end
 
   def in_seconds : Int32
